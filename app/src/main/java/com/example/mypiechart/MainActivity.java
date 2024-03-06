@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         pieChart.setTransparentCircleRadius(0f);   // transparent circle of piechart
 
+
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
         yValues.add(new PieEntry(34f, "PartyA"));
@@ -54,11 +56,20 @@ public class MainActivity extends AppCompatActivity {
         yValues.add(new PieEntry(40f, "Russia"));
         yValues.add(new PieEntry(35f, "China"));
         yValues.add(new PieEntry(23f, "Japan"));
+        yValues.add(new PieEntry(11f, "Singapore"));
+
+//        pieChart.getLegend().setOrientation(Legend.LegendOrientation.VERTICAL);   // orientation of legend
+        pieChart.getLegend().setEnabled(false); // remove legend
+
 
         PieDataSet dataSet = new PieDataSet(yValues, "Countries");
         dataSet.setSliceSpace(3f); // distance between values
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        pieChart.setTouchEnabled(false);    //  disable touch
+        pieChart.setDrawEntryLabels(false);     // hide label
+        dataSet.setDrawValues(false);   // hide number values
 
         pieChart.animateY(1000, Easing.EaseInOutCubic);
 

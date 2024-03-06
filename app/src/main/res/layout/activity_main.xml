@@ -9,8 +9,9 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
-        android:layout_width="match_parent"
-        android:layout_height="500sp">
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#A4D7EE">
 
     </com.github.mikephil.charting.charts.PieChart>
 
